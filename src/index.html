@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Air DatePicker</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:500" rel="stylesheet">
+  <script src="/build/air-datepicker.js"></script>
+  <style>
+    body {
+      background-color: #F1F5F8;
+    }
+    air-datepicker {
+      position: relative;
+    }
+    svg.calendar {
+      position: absolute;
+      width: 25px;
+      height: auto;
+      padding: 8px;
+      left: 0;
+    }
+    input {
+      background-color: #B8C2CC;
+      font-family: 'Roboto', sans-serif;
+      border: none;
+      height: 2rem;
+      width: 20rem;
+      padding: 5px 15px;
+      border-radius: .3rem;
+      color: #22292f;
+      font-size: 15px;
+      letter-spacing: 0.03rem;
+      padding-left: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <air-datepicker>
+      <input />
+      <svg class="calendar" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 36.45 36.45"><g fill="#22292f"><path d="M30.22 3.95h-1.1v-1.2c0-1.52-1.2-2.75-2.66-2.75a2.71 2.71 0 0 0-2.67 2.75v1.2h-2.74v-1.2c0-1.52-1.2-2.75-2.67-2.75a2.71 2.71 0 0 0-2.67 2.75v1.2h-2.74v-1.2c0-1.52-1.2-2.75-2.67-2.75a2.71 2.71 0 0 0-2.67 2.75v1.2h-1.4A4.26 4.26 0 0 0 1.96 8.2v24c0 2.34 1.91 4.25 4.25 4.25h24c2.35 0 4.25-1.91 4.25-4.25v-24c0-2.34-1.9-4.25-4.25-4.25zm-4.93-1.2c0-.69.52-1.25 1.17-1.25.64 0 1.17.56 1.17 1.25v4.9c0 .68-.53 1.25-1.17 1.25-.65 0-1.17-.56-1.17-1.25v-4.9zm-8.08 0c0-.69.52-1.25 1.17-1.25s1.17.56 1.17 1.25v4.9c0 .68-.53 1.25-1.17 1.25s-1.17-.56-1.17-1.25v-4.9zm-8.09 0c0-.69.53-1.25 1.18-1.25s1.16.56 1.16 1.25v4.9c0 .68-.52 1.25-1.17 1.25s-1.16-.56-1.16-1.25v-4.9zM31.98 32.2c0 .96-.78 1.75-1.75 1.75h-24c-.96 0-1.75-.79-1.75-1.75v-22h27.5v22z"/><path d="M6.72 14.63h4.59v4.09H6.72zM12.86 14.63h4.6v4.09h-4.6zM19 14.63h4.59v4.09H19zM25.13 14.63h4.6v4.09h-4.6zM6.72 20.08h4.59v4.09H6.72zM12.86 20.08h4.6v4.09h-4.6zM19 20.08h4.59v4.09H19zM25.13 20.08h4.6v4.09h-4.6zM6.72 25.54h4.59v4.09H6.72zM12.86 25.54h4.6v4.09h-4.6zM19 25.54h4.59v4.09H19zM25.13 25.54h4.6v4.09h-4.6z"/></g></svg>
+  </air-datepicker>
+
+  <script>
+   document.querySelector('air-datepicker').addEventListener('onSelect', (event) => {
+      event.detail.inst.hide();
+    });
+  </script>
+
+</body>
+</html>
