@@ -1,3 +1,9 @@
+## 💽 0.3.0 (2018-08-07)
+
+### Features
+
+ * From now we will load jQuery dynamically.
+
 ## 🕵️ 0.2.1 (2018-08-07)
 
 ### Features
