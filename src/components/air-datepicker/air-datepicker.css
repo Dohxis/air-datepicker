@@ -67,13 +67,13 @@
 	background: #f0f0f0;
 }
 .datepicker--cell.-current- {
-	color: #4eb5e6;
+	color: var(--air-datepicker--current, #4eb5e6);
 }
 .datepicker--cell.-current-.-focus- {
 	color: #4a4a4a;
 }
 .datepicker--cell.-current-.-in-range- {
-	color: #4eb5e6;
+	color: var(--air-datepicker--current, #4eb5e6);
 }
 .datepicker--cell.-in-range- {
 	background: rgba(92, 196, 239, 0.1);
@@ -112,14 +112,14 @@
 .datepicker--cell.-selected- {
 	color: #fff;
 	border: none;
-	background: #5cc4ef;
+	background: var(--air-datepicker--selected, #5cc4ef);
 }
 .datepicker--cell.-selected-.-current- {
 	color: #fff;
-	background: #5cc4ef;
+	background: var(--air-datepicker--selected, #5cc4ef);
 }
 .datepicker--cell.-selected-.-focus- {
-	background: #45bced;
+	background: var(--air-datepicker--selected-focus, #45bced);
 }
 .datepicker--cell:empty {
 	cursor: default;
@@ -136,7 +136,7 @@
 }
 
 .datepicker--day-name {
-	color: #ff9a19;
+	color: var(--air-datepicker--day-name, #ff9a19);
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
@@ -483,7 +483,7 @@
 }
 
 .datepicker--button {
-	color: #4eb5e6;
+	color: var(--air-datepicker--current, #4eb5e6);
 	cursor: pointer;
 	border-radius: 4px;
 	-webkit-flex: 1;
@@ -679,16 +679,16 @@
 	outline: none;
 }
 .datepicker--time-row input[type='range']:focus::-webkit-slider-thumb {
-	background: #5cc4ef;
-	border-color: #5cc4ef;
+	background: var(--air-datepicker--selected, #5cc4ef);
+	border-color: var(--air-datepicker--selected, #5cc4ef);
 }
 .datepicker--time-row input[type='range']:focus::-moz-range-thumb {
-	background: #5cc4ef;
-	border-color: #5cc4ef;
+	background: var(--air-datepicker--selected, #5cc4ef);
+	border-color: var(--air-datepicker--selected, #5cc4ef);
 }
 .datepicker--time-row input[type='range']:focus::-ms-thumb {
-	background: #5cc4ef;
-	border-color: #5cc4ef;
+	background: var(--air-datepicker--selected, #5cc4ef);
+	border-color: var(--air-datepicker--selected, #5cc4ef);
 }
 .datepicker--time-row input[type='range']::-webkit-slider-thumb {
 	box-sizing: border-box;

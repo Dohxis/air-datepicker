@@ -1,7 +1,7 @@
 {
-	"name": "air-datepicker",
-	"version": "0.0.1",
-	"description": "Web component wrapper for air-datepicker",
+	"name": "wc-air-datepicker",
+	"version": "0.1.0",
+	"description": "Web component wrapper around air-datepicker",
 	"module": "dist/esm/index.js",
 	"main": "dist/index.js",
 	"types": "dist/types/components.d.ts",
@@ -21,7 +21,10 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@stencil/core": "^0.11.0",
+		"@stencil/postcss": "^0.1.0",
+		"@stencil/sass": "^0.1.0",
 		"@types/jest": "^23.3.1",
+		"autoprefixer": "^9.1.0",
 		"jest": "^23.4.2",
 		"jquery": "^3.3.1"
 	},
