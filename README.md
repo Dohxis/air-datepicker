@@ -21,7 +21,7 @@ Or you can check [this page](https://stenciljs.com/docs/framework-integration) w
  ## Changes
  We have made some changes to the component here are all of them
  <br /> 🔤 English is default language instead of Russian
- <br /> 🔌 Component uses it's own instalattion of jQuery so you don't have to include it yourself
+ <br /> 🔌 Automatically loading jQuery if it's not already loaded.
  <br /> 💅 Added custom properties to make styling a little bit easier
 <br />
 

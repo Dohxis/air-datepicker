@@ -1,6 +1,6 @@
 {
 	"name": "wc-air-datepicker",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"description": "Web component wrapper around air-datepicker",
 	"module": "dist/esm/index.js",
 	"main": "dist/index.js",
@@ -25,8 +25,7 @@
 		"@stencil/sass": "^0.1.0",
 		"@types/jest": "^23.3.1",
 		"autoprefixer": "^9.1.0",
-		"jest": "^23.4.2",
-		"jquery": "^3.3.1"
+		"jest": "^23.4.2"
 	},
 	"repository": {
 		"type": "git",

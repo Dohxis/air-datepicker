@@ -1,6 +1,5 @@
 import { Component, Prop, Element, Event, EventEmitter, Method } from '@stencil/core';
-import $ from 'jquery';
-import DatePicker from './air-datepicker.js';
+import DatePicker from '../../assets/air-datepicker';
 
 @Component({
 	tag: 'air-datepicker',
@@ -65,67 +64,69 @@ export class AirDatePicker {
 
 	componentDidLoad() {
 		/**
-		 * I don't want to load jQuery into global scope. That's why
-		 * I made a small modification to air-datepicker source code 
-		 * and instead of executing a function straight away; I return 
-		 * it so I can do things myself.  
+		 * I dynamically load jQuery into application if it's not yet defined inside global
+		 * scope. This eliminates an extra step if you don't have jQuery already and if you
+		 * do we will just use yours.
 		 */
-		DatePicker(window, $);
-		this.addEnglishTranslation($);
-		this._picker = $(this.element.querySelector('input'))
-			.datepicker({
-				classes: this.classes,
-				inline: this.inline,
-				language: this.language,
-				startDate: this.startDate,
-				firstDay: this.firstDay,
-				weekends: this.weekends,
-				dateFormat: this.dateFormat,
-				altField: this.altField,
-				altFieldDateFormat: this.altFieldDateFormat,
-				toggleSelected: this.toggleSelected,
-				keyboardNav: this.keyboardNav,
-				position: this.position,
-				offset: this.offset,
-				view: this.view,
-				minView: this.minView,
-				showOtherMonths: this.showOtherMonths,
-				selectOtherMonths: this.selectOtherMonths,
-				moveToOtherMonthsOnSelect: this.moveToOtherMonthsOnSelect,
-				showOtherYears: this.showOtherYears,
-				selectOtherYears: this.selectOtherYears,
-				moveToOtherYearsOnSelect: this.moveToOtherYearsOnSelect,
-				minDate: this.minDate,
-				maxDate: this.maxDate,
-				disableNavWhenOutOfRange: this.disableNavWhenOutOfRange,
-				multipleDates: this.multipleDates,
-				multipleDatesSeparator: this.multipleDatesSeparator,
-				range: this.range,
-				todayButton: this.todayButton,
-				clearButton: this.clearButton,
-				showEvent: this.showEvent,
-				autoClose: this.autoClose,
-				monthsField: this.monthsField,
-				timepicker: this.timepicker,
-				onlyTimepicker: this.onlyTimepicker,
-				dateTimeSeparator: this.dateTimeSeparator,
-				timeFormat: this.timeFormat,
-				minHours: this.minHours,
-				maxHours: this.maxHours,
-				minMinutes: this.minMinutes,
-				maxMinutes: this.maxMinutes,
-				hoursStep: this.hoursStep,
-				minutesStep: this.minutesStep,
-				onSelect: (formattedDate, date, inst) => this.onSelect.emit({ formattedDate, date, inst }),
-				onShow: (inst, animationCompleted) => this.onShow.emit({ inst, animationCompleted }),
-				onHide: (inst, animationCompleted) => this.onHide.emit({ inst, animationCompleted }),
-				onChangeMonth: (month, year) => this.onChangeMonth.emit({ month, year }),
-				onChangeYear: (year) => this.onChangeYear.emit({ year }),
-				onChangeDecade: (decade) => this.onChangeDecade.emit({ decade }),
-				onChangeView: (view) => this.onChangeView.emit({ view }),
-				onRenderCell: (date, cellType) => this.onRenderCell.emit({ date, cellType })
-			})
-			.data('datepicker');
+		this.loadjQuery(() => {
+			const $ = (window as any).jQuery;
+			DatePicker(window, $);
+			this.addEnglishTranslation($);
+			this._picker = $(this.element.querySelector('input'))
+				.datepicker({
+					classes: this.classes,
+					inline: this.inline,
+					language: this.language,
+					startDate: this.startDate,
+					firstDay: this.firstDay,
+					weekends: this.weekends,
+					dateFormat: this.dateFormat,
+					altField: this.altField,
+					altFieldDateFormat: this.altFieldDateFormat,
+					toggleSelected: this.toggleSelected,
+					keyboardNav: this.keyboardNav,
+					position: this.position,
+					offset: this.offset,
+					view: this.view,
+					minView: this.minView,
+					showOtherMonths: this.showOtherMonths,
+					selectOtherMonths: this.selectOtherMonths,
+					moveToOtherMonthsOnSelect: this.moveToOtherMonthsOnSelect,
+					showOtherYears: this.showOtherYears,
+					selectOtherYears: this.selectOtherYears,
+					moveToOtherYearsOnSelect: this.moveToOtherYearsOnSelect,
+					minDate: this.minDate,
+					maxDate: this.maxDate,
+					disableNavWhenOutOfRange: this.disableNavWhenOutOfRange,
+					multipleDates: this.multipleDates,
+					multipleDatesSeparator: this.multipleDatesSeparator,
+					range: this.range,
+					todayButton: this.todayButton,
+					clearButton: this.clearButton,
+					showEvent: this.showEvent,
+					autoClose: this.autoClose,
+					monthsField: this.monthsField,
+					timepicker: this.timepicker,
+					onlyTimepicker: this.onlyTimepicker,
+					dateTimeSeparator: this.dateTimeSeparator,
+					timeFormat: this.timeFormat,
+					minHours: this.minHours,
+					maxHours: this.maxHours,
+					minMinutes: this.minMinutes,
+					maxMinutes: this.maxMinutes,
+					hoursStep: this.hoursStep,
+					minutesStep: this.minutesStep,
+					onSelect: (formattedDate, date, inst) => this.onSelect.emit({ formattedDate, date, inst }),
+					onShow: (inst, animationCompleted) => this.onShow.emit({ inst, animationCompleted }),
+					onHide: (inst, animationCompleted) => this.onHide.emit({ inst, animationCompleted }),
+					onChangeMonth: (month, year) => this.onChangeMonth.emit({ month, year }),
+					onChangeYear: (year) => this.onChangeYear.emit({ year }),
+					onChangeDecade: (decade) => this.onChangeDecade.emit({ decade }),
+					onChangeView: (view) => this.onChangeView.emit({ view }),
+					onRenderCell: (date, cellType) => this.onRenderCell.emit({ date, cellType })
+				})
+				.data('datepicker');
+		});
 	}
 
 	@Method()
@@ -191,6 +192,22 @@ export class AirDatePicker {
 	@Method()
 	public getSelectedDates(): Array<Date> {
 		return this._picker.selectedDates;
+	}
+
+	private loadjQuery(callback: () => void) {
+		const jQuery = (window as any).jQuery;
+		if (!jQuery) {
+			const link = 'https://code.jquery.com/jquery-3.3.1.min.js';
+
+			let element = document.createElement('script');
+			element.setAttribute('type', 'text/javascript');
+			element.setAttribute('src', link);
+			element.onload = callback;
+			(element as any).onreadystatechange = callback;
+			document.head.appendChild(element);
+		} else {
+			callback();
+		}
 	}
 
 	private addEnglishTranslation(jQuery: any) {
