@@ -1,6 +1,6 @@
 {
 	"name": "wc-air-datepicker",
-	"version": "0.1.0",
+	"version": "0.2.1",
 	"description": "Web component wrapper around air-datepicker",
 	"module": "dist/esm/index.js",
 	"main": "dist/index.js",

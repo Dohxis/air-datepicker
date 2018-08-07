@@ -42,7 +42,7 @@ If you need more colors you can always open an issue or submit a PR.
  ## Usage
  ```html
    <air-datepicker>
-      <input /> <!-- We will attach date picker on the first child  -->
+      <input /> <!-- We will attach date picker on the first input field  -->
    </air-datepicker>
  ```
   ```html
