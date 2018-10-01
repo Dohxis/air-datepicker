@@ -48,6 +48,7 @@ export class AirDatePicker {
 	@Prop() maxMinutes: number = 59;
 	@Prop() hoursStep: number = 1;
 	@Prop() minutesStep: number = 1;
+  @Prop() enableJQuery: boolean = false;
 
 	@Event() onSelect: EventEmitter;
 	@Event() onShow: EventEmitter;
@@ -68,65 +69,68 @@ export class AirDatePicker {
 		 * scope. This eliminates an extra step if you don't have jQuery already and if you
 		 * do we will just use yours.
 		 */
-		this.loadjQuery(() => {
-			const $ = (window as any).jQuery;
-			DatePicker(window, $);
-			this.addEnglishTranslation($);
-			this._picker = $(this.element.querySelector('input'))
-				.datepicker({
-					classes: this.classes,
-					inline: this.inline,
-					language: this.language,
-					startDate: this.startDate,
-					firstDay: this.firstDay,
-					weekends: this.weekends,
-					dateFormat: this.dateFormat,
-					altField: this.altField,
-					altFieldDateFormat: this.altFieldDateFormat,
-					toggleSelected: this.toggleSelected,
-					keyboardNav: this.keyboardNav,
-					position: this.position,
-					offset: this.offset,
-					view: this.view,
-					minView: this.minView,
-					showOtherMonths: this.showOtherMonths,
-					selectOtherMonths: this.selectOtherMonths,
-					moveToOtherMonthsOnSelect: this.moveToOtherMonthsOnSelect,
-					showOtherYears: this.showOtherYears,
-					selectOtherYears: this.selectOtherYears,
-					moveToOtherYearsOnSelect: this.moveToOtherYearsOnSelect,
-					minDate: this.minDate,
-					maxDate: this.maxDate,
-					disableNavWhenOutOfRange: this.disableNavWhenOutOfRange,
-					multipleDates: this.multipleDates,
-					multipleDatesSeparator: this.multipleDatesSeparator,
-					range: this.range,
-					todayButton: this.todayButton,
-					clearButton: this.clearButton,
-					showEvent: this.showEvent,
-					autoClose: this.autoClose,
-					monthsField: this.monthsField,
-					timepicker: this.timepicker,
-					onlyTimepicker: this.onlyTimepicker,
-					dateTimeSeparator: this.dateTimeSeparator,
-					timeFormat: this.timeFormat,
-					minHours: this.minHours,
-					maxHours: this.maxHours,
-					minMinutes: this.minMinutes,
-					maxMinutes: this.maxMinutes,
-					hoursStep: this.hoursStep,
-					minutesStep: this.minutesStep,
-					onSelect: (formattedDate, date, inst) => this.onSelect.emit({ formattedDate, date, inst }),
-					onShow: (inst, animationCompleted) => this.onShow.emit({ inst, animationCompleted }),
-					onHide: (inst, animationCompleted) => this.onHide.emit({ inst, animationCompleted }),
-					onChangeMonth: (month, year) => this.onChangeMonth.emit({ month, year }),
-					onChangeYear: (year) => this.onChangeYear.emit({ year }),
-					onChangeDecade: (decade) => this.onChangeDecade.emit({ decade }),
-					onChangeView: (view) => this.onChangeView.emit({ view }),
-					onRenderCell: (date, cellType) => this.onRenderCell.emit({ date, cellType })
-				})
-				.data('datepicker');
-		});
+    if (enableJQuery){
+      this.loadjQuery(() => {
+        const $ = (window as any).jQuery;
+        DatePicker(window, $);
+        this.addEnglishTranslation($);
+        this._picker = $(this.element.querySelector('input'))
+          .datepicker({
+            classes: this.classes,
+            inline: this.inline,
+            language: this.language,
+            startDate: this.startDate,
+            firstDay: this.firstDay,
+            weekends: this.weekends,
+            dateFormat: this.dateFormat,
+            altField: this.altField,
+            altFieldDateFormat: this.altFieldDateFormat,
+            toggleSelected: this.toggleSelected,
+            keyboardNav: this.keyboardNav,
+            position: this.position,
+            offset: this.offset,
+            view: this.view,
+            minView: this.minView,
+            showOtherMonths: this.showOtherMonths,
+            selectOtherMonths: this.selectOtherMonths,
+            moveToOtherMonthsOnSelect: this.moveToOtherMonthsOnSelect,
+            showOtherYears: this.showOtherYears,
+            selectOtherYears: this.selectOtherYears,
+            moveToOtherYearsOnSelect: this.moveToOtherYearsOnSelect,
+            minDate: this.minDate,
+            maxDate: this.maxDate,
+            disableNavWhenOutOfRange: this.disableNavWhenOutOfRange,
+            multipleDates: this.multipleDates,
+            multipleDatesSeparator: this.multipleDatesSeparator,
+            range: this.range,
+            todayButton: this.todayButton,
+            clearButton: this.clearButton,
+            showEvent: this.showEvent,
+            autoClose: this.autoClose,
+            monthsField: this.monthsField,
+            timepicker: this.timepicker,
+            onlyTimepicker: this.onlyTimepicker,
+            dateTimeSeparator: this.dateTimeSeparator,
+            timeFormat: this.timeFormat,
+            minHours: this.minHours,
+            maxHours: this.maxHours,
+            minMinutes: this.minMinutes,
+            maxMinutes: this.maxMinutes,
+            hoursStep: this.hoursStep,
+            minutesStep: this.minutesStep,
+            onSelect: (formattedDate, date, inst) => this.onSelect.emit({ formattedDate, date, inst }),
+            onShow: (inst, animationCompleted) => this.onShow.emit({ inst, animationCompleted }),
+            onHide: (inst, animationCompleted) => this.onHide.emit({ inst, animationCompleted }),
+            onChangeMonth: (month, year) => this.onChangeMonth.emit({ month, year }),
+            onChangeYear: (year) => this.onChangeYear.emit({ year }),
+            onChangeDecade: (decade) => this.onChangeDecade.emit({ decade }),
+            onChangeView: (view) => this.onChangeView.emit({ view }),
+            onRenderCell: (date, cellType) => this.onRenderCell.emit({ date, cellType })
+          })
+          .data('datepicker');
+      });
+    }
+		
 	}
 
 	@Method()
