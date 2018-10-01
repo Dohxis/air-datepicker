@@ -32,20 +32,14 @@
 	],
 	"dependencies": {},
 	"devDependencies": {
-		"@stencil/core": "^0.11.2",
-		"@types/jest": "^23.3.1",
-		"jest": "^23.4.2"
+		"@stencil/core": "^0.13.2"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Dohxis/air-datepicker.git"
 	},
 	"homepage": "https://github.com/Dohxis/air-datepicker",
-	"jest": {
-		"transform": {
-			"^.+\\.(ts|tsx)$": "<rootDir>/node_modules/@stencil/core/testing/jest.preprocessor.js"
-		},
-		"testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+	"testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
 		"moduleFileExtensions": [
 			"ts",
 			"tsx",
