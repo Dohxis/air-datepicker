@@ -10,10 +10,11 @@
 		"dist/"
 	],
 	"scripts": {
-  "test": "stencil test --spec",
-  "test.watch": "stencil test --spec --watch",
-  "test.e2e": "stencil test --e2e"
-},
+		"build": "stencil build",
+		"start": "stencil build --dev --watch --serve",
+		"test": "jest",
+		"test.watch": "jest --watch"
+	},
 	"author": "Domantas Mauruča <domantas.mauruca@gmail.com>",
 	"license": "MIT",
 	"bugs": {
