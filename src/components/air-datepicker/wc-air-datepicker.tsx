@@ -1,4 +1,5 @@
 import { Component, Prop, Element, Event, EventEmitter, Method } from '@stencil/core';
+// @ts-ignore
 import DatePicker from '../../assets/air-datepicker';
 
 @Component({
@@ -36,8 +37,8 @@ export class AirDatePicker {
 	@Prop() todayButton: boolean = false;
 	@Prop() clearButton: boolean = false;
 	@Prop() showEvent: string = 'focus';
-	@Prop() autoClose: false;
-	@Prop() monthsField: 'monthsShort';
+	@Prop() autoClose: boolean = false;
+	@Prop() monthsField: string = 'monthsShort';
 	@Prop() timepicker: boolean = false;
 	@Prop() onlyTimepicker: boolean = false;
 	@Prop() dateTimeSeparator: string = ' ';
@@ -49,16 +50,16 @@ export class AirDatePicker {
 	@Prop() hoursStep: number = 1;
 	@Prop() minutesStep: number = 1;
 
-	@Event() onSelect: EventEmitter;
-	@Event() onShow: EventEmitter;
-	@Event() onHide: EventEmitter;
-	@Event() onChangeMonth: EventEmitter;
-	@Event() onChangeYear: EventEmitter;
-	@Event() onChangeDecade: EventEmitter;
-	@Event() onChangeView: EventEmitter;
-	@Event() onRenderCell: EventEmitter;
+	@Event() onSelect!: EventEmitter;
+	@Event() onShow!: EventEmitter;
+	@Event() onHide!: EventEmitter;
+	@Event() onChangeMonth!: EventEmitter;
+	@Event() onChangeYear!: EventEmitter;
+	@Event() onChangeDecade!: EventEmitter;
+	@Event() onChangeView!: EventEmitter;
+	@Event() onRenderCell!: EventEmitter;
 
-	@Element() element: HTMLStencilElement;
+	@Element() element!: HTMLStencilElement;
 
 	private _picker: any;
 
@@ -116,14 +117,17 @@ export class AirDatePicker {
 					maxMinutes: this.maxMinutes,
 					hoursStep: this.hoursStep,
 					minutesStep: this.minutesStep,
-					onSelect: (formattedDate, date, inst) => this.onSelect.emit({ formattedDate, date, inst }),
-					onShow: (inst, animationCompleted) => this.onShow.emit({ inst, animationCompleted }),
-					onHide: (inst, animationCompleted) => this.onHide.emit({ inst, animationCompleted }),
-					onChangeMonth: (month, year) => this.onChangeMonth.emit({ month, year }),
-					onChangeYear: (year) => this.onChangeYear.emit({ year }),
-					onChangeDecade: (decade) => this.onChangeDecade.emit({ decade }),
-					onChangeView: (view) => this.onChangeView.emit({ view }),
-					onRenderCell: (date, cellType) => this.onRenderCell.emit({ date, cellType })
+					onSelect: (formattedDate: string, date: Date | Array<Date>, inst: Object) =>
+						this.onSelect.emit({ formattedDate, date, inst }),
+					onShow: (inst: Object, animationCompleted: boolean) =>
+						this.onShow.emit({ inst, animationCompleted }),
+					onHide: (inst: Object, animationCompleted: boolean) =>
+						this.onHide.emit({ inst, animationCompleted }),
+					onChangeMonth: (month: number, year: number) => this.onChangeMonth.emit({ month, year }),
+					onChangeYear: (year: number) => this.onChangeYear.emit({ year }),
+					onChangeDecade: (decade: number) => this.onChangeDecade.emit({ decade }),
+					onChangeView: (view: string) => this.onChangeView.emit({ view }),
+					onRenderCell: (date: Date, cellType: string) => this.onRenderCell.emit({ date, cellType })
 				})
 				.data('datepicker');
 		});
