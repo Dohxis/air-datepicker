@@ -10,6 +10,9 @@
 
  * Instead of attaching itself to the first child, it now looks for the first input.
 
+### Bug fixes
+  * Fixed returning the right instance of the date picker 
+
 ## 💅 0.1.0 (2018-08-07)
 
 ### Features

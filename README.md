@@ -2,13 +2,13 @@
 
 # `<air-datepicker>`
  Air DatePicker is a really awesome date picker. While the actual library is written using jQuery, I sometimes find it difficult to use inside modern libraries. That's why
- this project exist. It's a little wrapper around AirDatePicker which gives a simple web component and you can use it inside 
+ this project exists. It's a little wrapper around AirDatePicker which gives a simple web component and you can use it inside 
  your vanilla, React, Vue, (...) application.
  
  ![air-datepicker](https://i.imgur.com/chRlShK.png)
  
  ## Instalattion
-You can use `NPM` or `Yarn` to install the component
+You can use `npm` or `Yarn` to install the component
  ```bash
  npm install --save wc-air-datepicker
  ```
@@ -25,10 +25,10 @@ Or you can check [this page](https://stenciljs.com/docs/framework-integration) w
  <br /> 💅 Added custom properties to make styling a little bit easier
 <br />
 
-I am open to suggestion and improvements, open an issue or submit a PR if you would like to improve the project!
+I am open to suggestions and improvements, open an issue or submit a PR if you would like to improve the project!
 
 ## Styling
-You can change some colors using custom properties. I haven't invested into making every single color available here, just the ones that seems reasonable to have.
+You can change some colors using custom properties. I haven't invested into making every single color available here, just the ones that seem reasonable to have.
 If you need more colors you can always open an issue or submit a PR.
 ```html
   :root {

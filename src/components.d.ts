@@ -27,7 +27,7 @@ declare global {
     interface AirDatepicker {
       'altField': string;
       'altFieldDateFormat': string;
-      'autoClose': false;
+      'autoClose': boolean;
       'classes': string;
       'clear': () => void;
       'clearButton': boolean;
@@ -51,7 +51,7 @@ declare global {
       'minMinutes': number;
       'minView': string;
       'minutesStep': number;
-      'monthsField': 'monthsShort';
+      'monthsField': string;
       'moveToOtherMonthsOnSelect': boolean;
       'moveToOtherYearsOnSelect': boolean;
       'multipleDates': boolean | number;
@@ -104,7 +104,7 @@ declare global {
     export interface AirDatepickerAttributes extends HTMLAttributes {
       'altField'?: string;
       'altFieldDateFormat'?: string;
-      'autoClose'?: false;
+      'autoClose'?: boolean;
       'classes'?: string;
       'clearButton'?: boolean;
       'dateFormat'?: string;
@@ -123,7 +123,7 @@ declare global {
       'minMinutes'?: number;
       'minView'?: string;
       'minutesStep'?: number;
-      'monthsField'?: 'monthsShort';
+      'monthsField'?: string;
       'moveToOtherMonthsOnSelect'?: boolean;
       'moveToOtherYearsOnSelect'?: boolean;
       'multipleDates'?: boolean | number;
